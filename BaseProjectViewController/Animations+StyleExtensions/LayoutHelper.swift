@@ -121,12 +121,14 @@ extension LayoutHelper where Self: UIView {
         
     }
     
+    @discardableResult
     func setHeight(_ height: CGFloat) -> UIView {
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: height).isActive = true
         return self
     }
     
+    @discardableResult
     func setWidth(_ width: CGFloat) -> UIView {
         translatesAutoresizingMaskIntoConstraints = false
         widthAnchor.constraint(equalToConstant: width).isActive = true

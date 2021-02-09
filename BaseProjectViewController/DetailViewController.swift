@@ -1,35 +1,38 @@
 //
-//  ViewController.swift
-//  Stackview
+//  GetViewController.swift
+//  BaseProjectViewController
 //
-//  Created by Maria on 12/01/2021.
+//  Created by Maria on 09/02/2021.
 //
 
 import UIKit
 
 class DetailViewController: UIViewController {
-    let model = ModelControllers()
-    let customeViews = CustomeColoredViews()
-    var item = Int()
-    var section = Int()
+    
+    let detailView = DetailView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        model.getLayout(item : item, view: view, section: section)
+        // Do any additional setup after loading the view, typically from a nib.
+        setupNavBar()
+        setLayout()
+        style()
+    }
+}
+
+extension  DetailViewController {
+    
+    fileprivate func setupNavBar() {
+        navigationItem.title = "Detail"
     }
     
-    
-    override func viewWillAppear(_ animated: Bool){
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = false
-    }
-    override func viewWillDisappear(_ animated: Bool){
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
+    func setLayout() {
+        view.addSubview(detailView)
+        detailView.edgeToSafeArea(view, constant: 20)
     }
     
+    func style() {
+        view.backgroundColor = .white
+    }
+
 }
